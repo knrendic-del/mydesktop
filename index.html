@@ -18,6 +18,18 @@
         <div class="main">
            <div class="widget">
     <h3>Widget 01</h3>
+    <div class="notepad">
+    <textarea 
+        id="note-area" 
+        name="message" 
+        rows="20" 
+        cols="40">
+    </textarea>
+</div>
+
+<p>
+    <button id="saveNoteBtn">Save</button>
+</p>
 </div>
 <div class="widget">
     <h3>Widget 02</h3>
@@ -41,6 +53,19 @@ var sp = "/";
         if (mm < 10) mm = '0' + mm;
 
         $("#date").html(mm + sp + dd + sp + yyyy);
+$("#saveNoteBtn").click(function(){
+    var currentNotes = $("#notepad").val();
+    localStorage.setItem("notes", currentNotes);    
+});
+try {
+  var loadNotes = localStorage.getItem("notes");
+}
+catch(err) {
+  var loadNotes = "Enter your notes here and click 'Save'";
+}
+
+$("#note-area").val(loadNotes);
+
 </script>
 </html>
 
