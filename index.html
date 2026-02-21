@@ -54,7 +54,7 @@ var sp = "/";
 
         $("#date").html(mm + sp + dd + sp + yyyy);
 $("#saveNoteBtn").click(function(){
-    var currentNotes = $("#notepad").val();
+    var currentNotes = $("#note-area").val();
     localStorage.setItem("notes", currentNotes);    
 });
 try {
